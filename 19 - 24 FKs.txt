@@ -1,0 +1,105 @@
+ALTER TABLE public.biblioteca
+    ADD CONSTRAINT biblioteca_funcionario_fk FOREIGN KEY (funcionario_id)
+    REFERENCES public.funcionario (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+
+ALTER TABLE public.biblioteca
+    ADD CONSTRAINT biblioteca_faculdade_fk FOREIGN KEY (faculdade_id)
+    REFERENCES public.faculdade (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+---------------------------------------------------------------------------------------------------------
+ALTER TABLE public.curso
+    ADD CONSTRAINT curso_coordenador_fk FOREIGN KEY (coordenador_id)
+    REFERENCES public.coordenador (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+ALTER TABLE public.curso
+    ADD CONSTRAINT curso_faculdade_fk FOREIGN KEY (faculdade_id)
+    REFERENCES public.faculdade (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+---------------------------------------------------------------------------------------------------------
+ALTER TABLE public.livro
+    ADD CONSTRAINT livro_biblioteca_fk FOREIGN KEY (biblioteca_id)
+    REFERENCES public.biblioteca (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+ALTER TABLE public.livro
+    ADD CONSTRAINT livro_autor_fk FOREIGN KEY (autor_id)
+    REFERENCES public.autor (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+ALTER TABLE public.livro
+    ADD CONSTRAINT livro_editora_fk FOREIGN KEY (editora_id)
+    REFERENCES public.editora (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+---------------------------------------------------------------------------------------------------------
+ALTER TABLE public.inscricao_vestibular
+    ADD CONSTRAINT inscricao_pessoa_fk FOREIGN KEY (pessoa_id)
+    REFERENCES public.pessoa (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+ALTER TABLE public.inscricao_vestibular
+    ADD CONSTRAINT inscricao_curso_fk FOREIGN KEY (curso_id)
+    REFERENCES public.curso (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+ALTER TABLE public.inscricao_vestibular
+    ADD CONSTRAINT inscricao_situacao_fk FOREIGN KEY (situacao_id)
+    REFERENCES public.situacao (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+---------------------------------------------------------------------------------------------------------
+ALTER TABLE public.turma
+    ADD CONSTRAINT turma_professor_fk FOREIGN KEY (professor_id)
+    REFERENCES public.professor (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+ALTER TABLE public.turma
+    ADD CONSTRAINT turma_curso_fk FOREIGN KEY (curso_id)
+    REFERENCES public.curso (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+ALTER TABLE public.turma
+    ADD CONSTRAINT turma_turno_fk FOREIGN KEY (turno_id)
+    REFERENCES public.turno (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+---------------------------------------------------------------------------------------------------------
+ALTER TABLE public.locacao
+    ADD CONSTRAINT locacao_pessoa_fk FOREIGN KEY (pessoa_id)
+    REFERENCES public.pessoa (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+ALTER TABLE public.locacao
+    ADD CONSTRAINT locacao_livro_fk FOREIGN KEY (livro_id)
+    REFERENCES public.livro (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;

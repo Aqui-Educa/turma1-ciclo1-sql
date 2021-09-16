@@ -16,24 +16,3 @@ CREATE SEQUENCE public.livro_seq
 
 ALTER TABLE public.livro
     ALTER COLUMN id SET DEFAULT nextval('livro_seq')::regclass;
-
-ALTER TABLE public.livro
-    ADD CONSTRAINT livro_biblioteca_fk FOREIGN KEY (biblioteca_id)
-    REFERENCES public.biblioteca (id)
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;
-
-ALTER TABLE public.livro
-    ADD CONSTRAINT livro_autor_fk FOREIGN KEY (autor_id)
-    REFERENCES public.autor (id)
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;
-
-ALTER TABLE public.livro
-    ADD CONSTRAINT livro_editora_fk FOREIGN KEY (editora_id)
-    REFERENCES public.editora (id)
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;

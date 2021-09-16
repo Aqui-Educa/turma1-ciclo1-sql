@@ -16,24 +16,3 @@ CREATE SEQUENCE public.inscricao_vestibular_seq
 
 ALTER TABLE public.inscricao_vestibular
     ALTER COLUMN id SET DEFAULT nextval('inscricao_vestibular_seq')::regclass;
-
-ALTER TABLE public.inscricao_vestibular
-    ADD CONSTRAINT inscricao_pessoa_fk FOREIGN KEY (pessoa_id)
-    REFERENCES public.pessoa (id)
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;
-
-ALTER TABLE public.inscricao_vestibular
-    ADD CONSTRAINT inscricao_curso_fk FOREIGN KEY (curso_id)
-    REFERENCES public.curso (id)
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;
-
-ALTER TABLE public.inscricao_vestibular
-    ADD CONSTRAINT inscricao_situacao_fk FOREIGN KEY (situacao_id)
-    REFERENCES public.situacao (id)
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;

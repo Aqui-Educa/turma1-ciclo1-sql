@@ -16,24 +16,3 @@ CREATE SEQUENCE public.turma_seq
 
 ALTER TABLE public.turma
     ALTER COLUMN id SET DEFAULT nextval('turma_seq')::regclass;
-
-ALTER TABLE public.turma
-    ADD CONSTRAINT turma_professor_fk FOREIGN KEY (professor_id)
-    REFERENCES public.professor (id)
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;
-
-ALTER TABLE public.turma
-    ADD CONSTRAINT turma_curso_fk FOREIGN KEY (curso_id)
-    REFERENCES public.curso (id)
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;
-
-ALTER TABLE public.turma
-    ADD CONSTRAINT turma_turno_fk FOREIGN KEY (turno_id)
-    REFERENCES public.turno (id)
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;

@@ -17,17 +17,3 @@ CREATE SEQUENCE public.curso_seq
 
 ALTER TABLE public.curso
     ALTER COLUMN id SET DEFAULT nextval('curso_seq')::regclass;
-
-ALTER TABLE public.curso
-    ADD CONSTRAINT curso_coordenador_fk FOREIGN KEY (coordenador_id)
-    REFERENCES public.coordenador (id)
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;
-
-ALTER TABLE public.curso
-    ADD CONSTRAINT curso_faculdade_fk FOREIGN KEY (faculdade_id)
-    REFERENCES public.faculdade (id)
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;
