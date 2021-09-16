@@ -1,0 +1,14 @@
+CREATE SEQUENCE public.pagamento_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 999999999
+    CACHE 1;
+
+CREATE TABLE public.pagamento
+(
+    id integer NOT NULL DEFAULT (nextval('pagamento_id_seq'::regclass))::regclass,
+    faixa_salarial_id integer NOT NULL,
+    data time without time zone NOT NULL,
+    CONSTRAINT pagamento_pkey PRIMARY KEY (id)
+)

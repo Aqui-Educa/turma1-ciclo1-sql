@@ -1,0 +1,17 @@
+CREATE SEQUENCE public.faculdade_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 999999999
+    CACHE 1;
+
+CREATE TABLE public.faculdade
+(
+    id integer NOT NULL DEFAULT (nextval('faculdade_id_seq'::regclass))::regclass,
+    nome character varying(200) COLLATE pg_catalog."default" NOT NULL,
+    cnpj character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    endereco_id integer NOT NULL,
+    contato_id integer NOT NULL,
+    CONSTRAINT faculdade_pkey PRIMARY KEY (id),
+    CONSTRAINT u_cnpj UNIQUE (cnpj)
+)
