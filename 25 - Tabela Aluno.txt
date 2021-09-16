@@ -1,0 +1,18 @@
+CREATE SEQUENCE public.aluno_matricula_seq
+    INCREMENT 1
+    START 1000
+    MINVALUE 1000
+    MAXVALUE 999999
+    CACHE 1;
+
+CREATE TABLE IF NOT EXISTS public.aluno
+(
+    matricula regclass NOT NULL DEFAULT nextval('aluno_matricula_seq'::regclass),
+    status character varying COLLATE pg_catalog."default" NOT NULL,
+    pessoa_id integer NOT NULL,
+    curso_id character varying COLLATE pg_catalog."default" NOT NULL,
+    responsavel character varying COLLATE pg_catalog."default",
+    necessidade_especial character varying COLLATE pg_catalog."default",
+    semestre integer NOT NULL,
+    turma_id integer NOT NULL,
+    CONSTRAINT aluno_pkey PRIMARY KEY (matricula);
