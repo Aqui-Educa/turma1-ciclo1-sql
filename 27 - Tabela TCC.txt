@@ -1,0 +1,18 @@
+CREATE SEQUENCE public.tcc_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 999999
+    CACHE 1;
+
+
+CREATE TABLE IF NOT EXISTS public.tcc
+(
+    id integer NOT NULL DEFAULT nextval('tcc_seq'::regclass),
+    aluno_id integer NOT NULL,
+    coordenador_id integer NOT NULL,
+    titulo_tcc character varying COLLATE pg_catalog."default" NOT NULL,
+    data_criacao date NOT NULL,
+    situacao_id integer NOT NULL,
+    CONSTRAINT tcc_pkey PRIMARY KEY (id)
+);

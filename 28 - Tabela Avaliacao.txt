@@ -1,0 +1,14 @@
+CREATE SEQUENCE public.avaliacao_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 999999
+    CACHE 1;
+
+CREATE TABLE IF NOT EXISTS public.avaliacao
+(
+    id integer NOT NULL DEFAULT nextval('avaliacao_seq'::regclass),
+    aluno_id integer NOT NULL,
+    materia_id integer NOT NULL,
+    CONSTRAINT avaliacao_pkey PRIMARY KEY (id)
+);
