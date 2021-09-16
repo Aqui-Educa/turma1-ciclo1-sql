@@ -10,5 +10,5 @@ CREATE TABLE IF NOT EXISTS public.resultado
     id integer NOT NULL DEFAULT nextval('resultado_seq'::regclass),
     nota integer NOT NULL,
     avaliacao_id integer NOT NULL,
-    CONSTRAINT avaliacao_pkey PRIMARY KEY (id)
+    CONSTRAINT resultado_pkey PRIMARY KEY (id)
 );
