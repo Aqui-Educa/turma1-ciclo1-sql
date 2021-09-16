@@ -1,0 +1,15 @@
+CREATE TABLE IF NOT EXISTS public.coordenador
+(
+    id integer NOT NULL,
+    funcionario_id integer NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE SEQUENCE coordenador_id_seq
+INCREMENT 1
+MINVALUE 1
+MAXVALUE 999999999
+START 1
+CACHE 1;
+
+ALTER TABLE coordenador ALTER COLUMN id SET DEFAULT (nextval('coordenador_id_seq'::regclass))::regclass;

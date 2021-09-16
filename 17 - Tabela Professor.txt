@@ -1,0 +1,17 @@
+CREATE TABLE IF NOT EXISTS public.professor
+(
+    id integer NOT NULL,
+    funcionario_id integer NOT NULL,
+    materia_id integer NOT NULL,
+    orientador boolean NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE SEQUENCE professor_id_seq
+INCREMENT 1
+MINVALUE 1
+MAXVALUE 999999999
+START 1
+CACHE 1;
+
+ALTER TABLE professor ALTER COLUMN id SET DEFAULT (nextval('professor_id_seq'::regclass))::regclass;

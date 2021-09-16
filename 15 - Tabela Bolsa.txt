@@ -1,0 +1,19 @@
+CREATE TABLE IF NOT EXISTS public.bolsa
+(
+    id integer NOT NULL,
+    pessoa_id integer NOT NULL,
+    tipo character varying(100) NOT NULL,
+    porcentagem numeric(9, 2) NOT NULL,
+    inicio date NOT NULL,
+    fim date,
+    PRIMARY KEY (id)
+);
+
+CREATE SEQUENCE bolsa_id_seq
+INCREMENT 1
+MINVALUE 1
+MAXVALUE 999999999
+START 1
+CACHE 1;
+
+ALTER TABLE bolsa ALTER COLUMN id SET DEFAULT (nextval('bolsa_id_seq'::regclass))::regclass;

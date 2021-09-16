@@ -1,0 +1,18 @@
+CREATE TABLE IF NOT EXISTS public.evento
+(
+    id integer NOT NULL,
+    pessoa_id integer NOT NULL,
+    nome character varying(250) NOT NULL,
+    tipo character varying(100) NOT NULL,
+    data date NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE SEQUENCE evento_id_seq
+INCREMENT 1
+MINVALUE 1
+MAXVALUE 999999999
+START 1
+CACHE 1;
+
+ALTER TABLE evento ALTER COLUMN id SET DEFAULT (nextval('evento_id_seq'::regclass))::regclass;
