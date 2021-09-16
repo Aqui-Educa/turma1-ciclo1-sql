@@ -8,5 +8,11 @@ CREATE TABLE IF NOT EXISTS public.locacao
     PRIMARY KEY (id)
 );
 
+CREATE SEQUENCE public.locacao_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 999999;
+
 ALTER TABLE public.locacao
-    OWNER to postgres;
+    ALTER COLUMN id SET DEFAULT nextval('locacao_seq')::regclass;

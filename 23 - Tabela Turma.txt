@@ -8,5 +8,11 @@ CREATE TABLE IF NOT EXISTS public.turma
     PRIMARY KEY (id)
 );
 
+CREATE SEQUENCE public.turma_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 999999;
+
 ALTER TABLE public.turma
-    OWNER to postgres;
+    ALTER COLUMN id SET DEFAULT nextval('turma_seq')::regclass;

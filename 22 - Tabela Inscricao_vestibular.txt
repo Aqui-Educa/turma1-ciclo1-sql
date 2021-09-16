@@ -8,5 +8,11 @@ CREATE TABLE IF NOT EXISTS public.inscricao_vestibular
     PRIMARY KEY (id)
 );
 
+CREATE SEQUENCE public.inscricao_vestibular_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 999999;
+
 ALTER TABLE public.inscricao_vestibular
-    OWNER to postgres;
+    ALTER COLUMN id SET DEFAULT nextval('inscricao_vestibular_seq')::regclass;

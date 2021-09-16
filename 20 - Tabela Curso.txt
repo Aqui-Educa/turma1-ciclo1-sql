@@ -9,5 +9,11 @@ CREATE TABLE IF NOT EXISTS public.curso
     PRIMARY KEY (id)
 );
 
+CREATE SEQUENCE public.curso_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 999999;
+
 ALTER TABLE public.curso
-    OWNER to postgres;
+    ALTER COLUMN id SET DEFAULT nextval('curso_seq')::regclass;
