@@ -2,7 +2,8 @@ CREATE TABLE public.Situacao
 (
     id integer NOT NULL,
     status character varying COLLATE pg_catalog."default",
-    CONSTRAINT "Situacao_pkey" PRIMARY KEY (id)
+    CONSTRAINT "Situacao_pkey" PRIMARY KEY (id),
+    CONSTRAINT u_status UNIQUE (status)
 );
 
 CREATE SEQUENCE Situacao_id_seq

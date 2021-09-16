@@ -3,7 +3,9 @@ CREATE TABLE public.Contato
     id integer NOT NULL,
     email character varying COLLATE pg_catalog."default",
     telefone character varying COLLATE pg_catalog."default",
-    CONSTRAINT "Contato_pkey" PRIMARY KEY (id)
+    CONSTRAINT "Contato_pkey" PRIMARY KEY (id),
+    CONSTRAINT u_email UNIQUE (email),
+    CONSTRAINT u_telefone UNIQUE (telefone)
 );
 
 CREATE SEQUENCE Contato_id_seq
