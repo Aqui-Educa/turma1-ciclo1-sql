@@ -1,0 +1,15 @@
+CREATE SEQUENCE public.horario_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 999999
+    CACHE 1;
+
+
+CREATE TABLE IF NOT EXISTS public.horario
+(
+    id integer NOT NULL DEFAULT nextval('horario_seq'::regclass),
+    hora_inicio character varying COLLATE pg_catalog."default" NOT NULL,
+    hora_fim character varying COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT horario_pkey PRIMARY KEY (id)
+);
