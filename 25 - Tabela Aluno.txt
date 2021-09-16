@@ -1,10 +1,3 @@
-CREATE SEQUENCE public.aluno_matricula_seq
-    INCREMENT 1
-    START 1000
-    MINVALUE 1000
-    MAXVALUE 999999
-    CACHE 1;
-
 CREATE TABLE IF NOT EXISTS public.aluno
 (
     matricula regclass NOT NULL DEFAULT nextval('aluno_matricula_seq'::regclass),
@@ -16,3 +9,10 @@ CREATE TABLE IF NOT EXISTS public.aluno
     semestre integer NOT NULL,
     turma_id integer NOT NULL,
     CONSTRAINT aluno_pkey PRIMARY KEY (matricula);
+    
+CREATE SEQUENCE public.aluno_matricula_seq
+    INCREMENT 1
+    START 1000
+    MINVALUE 1000
+    MAXVALUE 999999
+    CACHE 1;
