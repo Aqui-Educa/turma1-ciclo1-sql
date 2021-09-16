@@ -1,8 +1,17 @@
-CREATE TABLE public."Faixa_salarial"
+CREATE TABLE public.Faixa_salarial
 (
     id integer NOT NULL,
     nivel integer,
     valor real,
     nivel_xp character varying COLLATE pg_catalog."default",
     CONSTRAINT "Faixa_salarial_pkey" PRIMARY KEY (id)
-)
+);
+
+CREATE SEQUENCE Faixa_salarial_id_seq
+INCREMENT 1 
+MINVALUE 1
+ MAXVALUE 9223372036854775807
+ START 1
+ CACHE 1;
+ 
+ALTER TABLE Faixa_salarial ALTER COLUMN id SET DEFAULT (nextval('Faixa_salarial_id_seq'::regclass))::regclass;
