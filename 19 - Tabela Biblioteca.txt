@@ -15,3 +15,19 @@ CREATE SEQUENCE public.biblioteca_seq
 
 ALTER TABLE public.biblioteca
     ALTER COLUMN id SET DEFAULT nextval('biblioteca_seq')::regclass;
+
+
+ALTER TABLE public.biblioteca
+    ADD CONSTRAINT biblioteca_funcionario_fk FOREIGN KEY (funcionario_id)
+    REFERENCES public.funcionario (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+
+ALTER TABLE public.biblioteca
+    ADD CONSTRAINT biblioteca_faculdade_fk FOREIGN KEY (faculdade_id)
+    REFERENCES public.faculdade (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;

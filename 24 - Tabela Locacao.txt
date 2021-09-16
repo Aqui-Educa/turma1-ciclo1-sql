@@ -16,3 +16,18 @@ CREATE SEQUENCE public.locacao_seq
 
 ALTER TABLE public.locacao
     ALTER COLUMN id SET DEFAULT nextval('locacao_seq')::regclass;
+
+
+ALTER TABLE public.locacao
+    ADD CONSTRAINT locacao_pessoa_fk FOREIGN KEY (pessoa_id)
+    REFERENCES public.pessoa (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+ALTER TABLE public.locacao
+    ADD CONSTRAINT locacao_livro_fk FOREIGN KEY (livro_id)
+    REFERENCES public.livro (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
