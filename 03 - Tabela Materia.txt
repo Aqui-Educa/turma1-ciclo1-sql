@@ -1,17 +1,17 @@
-CREATE TABLE public.Materia
+CREATE TABLE public.materia
 (
     id integer NOT NULL,
     nome character varying COLLATE pg_catalog."default",
     carga_horaria character varying COLLATE pg_catalog."default",
     curso_id integer,
-    CONSTRAINT "Materia_pkey" PRIMARY KEY (id)
+    CONSTRAINT materia_pkey PRIMARY KEY (id)
 );
 
-CREATE SEQUENCE Materia_id_seq
+CREATE SEQUENCE materia_id_seq
 INCREMENT 1 
 MINVALUE 1
  MAXVALUE 9223372036854775807
  START 1
  CACHE 1;
  
-ALTER TABLE Materia ALTER COLUMN id SET DEFAULT (nextval('Materia_id_seq'::regclass))::regclass;
+ALTER TABLE materia ALTER COLUMN id SET DEFAULT (nextval('materia_id_seq'::regclass))::regclass;

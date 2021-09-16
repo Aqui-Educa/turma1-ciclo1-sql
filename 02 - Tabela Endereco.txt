@@ -1,18 +1,18 @@
-CREATE TABLE public.Endereco
+CREATE TABLE public.endereco
 (
     id integer NOT NULL,
     logradouro character varying COLLATE pg_catalog."default",
     numero integer,
     bairro character varying COLLATE pg_catalog."default",
     cidade character varying COLLATE pg_catalog."default",
-    CONSTRAINT "Endereco_pkey" PRIMARY KEY (id)
+    CONSTRAINT endereco_pkey PRIMARY KEY (id)
 );
 
-CREATE SEQUENCE Endereco_id_seq
+CREATE SEQUENCE endereco_id_seq
 INCREMENT 1 
 MINVALUE 1
  MAXVALUE 9223372036854775807
  START 1
  CACHE 1;
  
-ALTER TABLE Endereco ALTER COLUMN id SET DEFAULT (nextval('Endereco_id_seq'::regclass))::regclass;
+ALTER TABLE endereco ALTER COLUMN id SET DEFAULT (nextval('endereco_id_seq'::regclass))::regclass;

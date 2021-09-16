@@ -1,18 +1,18 @@
-CREATE TABLE public.Contato
+CREATE TABLE public.contato
 (
     id integer NOT NULL,
     email character varying COLLATE pg_catalog."default",
     telefone character varying COLLATE pg_catalog."default",
-    CONSTRAINT "Contato_pkey" PRIMARY KEY (id),
+    CONSTRAINT contato_pkey PRIMARY KEY (id),
     CONSTRAINT u_email UNIQUE (email),
     CONSTRAINT u_telefone UNIQUE (telefone)
 );
 
-CREATE SEQUENCE Contato_id_seq
+CREATE SEQUENCE contato_id_seq
 INCREMENT 1 
 MINVALUE 1
  MAXVALUE 9223372036854775807
  START 1
  CACHE 1;
  
-ALTER TABLE Contato ALTER COLUMN id SET DEFAULT (nextval('Contato_id_seq'::regclass))::regclass;
+ALTER TABLE contato ALTER COLUMN id SET DEFAULT (nextval('contato_id_seq'::regclass))::regclass;

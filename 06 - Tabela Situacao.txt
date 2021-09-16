@@ -1,8 +1,8 @@
-CREATE TABLE public.Situacao
+CREATE TABLE public.situacao
 (
     id integer NOT NULL,
     status character varying COLLATE pg_catalog."default",
-    CONSTRAINT "Situacao_pkey" PRIMARY KEY (id),
+    CONSTRAINT situacao_pkey PRIMARY KEY (id),
     CONSTRAINT u_status UNIQUE (status)
 );
 
@@ -13,4 +13,4 @@ MINVALUE 1
  START 1
  CACHE 1;
  
-ALTER TABLE Situacao ALTER COLUMN id SET DEFAULT (nextval('Situacao_id_seq'::regclass))::regclass;
+ALTER TABLE situacao ALTER COLUMN id SET DEFAULT (nextval('situacao_id_seq'::regclass))::regclass;
