@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS public.locacao
+(
+    id integer NOT NULL,
+    pessoa_id integer NOT NULL,
+    livro_id integer NOT NULL,
+    data_locacao date,
+    data_devolucao date,
+    PRIMARY KEY (id)
+);
+
+ALTER TABLE public.locacao
+    OWNER to postgres;

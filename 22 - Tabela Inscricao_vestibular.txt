@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS public.inscricao_vestibular
+(
+    id integer NOT NULL,
+    pessoa_id integer NOT NULL,
+    curso_id integer NOT NULL,
+    ano date NOT NULL,
+    situacao_id integer NOT NULL,
+    PRIMARY KEY (id)
+);
+
+ALTER TABLE public.inscricao_vestibular
+    OWNER to postgres;

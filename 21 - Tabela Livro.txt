@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS public.livro
+(
+    id integer NOT NULL,
+    titulo character varying(200) NOT NULL,
+    autor_id integer NOT NULL,
+    editora_id integer NOT NULL,
+    biblioteca_id integer NOT NULL,
+    PRIMARY KEY (id)
+);
+
+ALTER TABLE public.livro
+    OWNER to postgres;

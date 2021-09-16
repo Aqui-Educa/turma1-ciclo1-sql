@@ -1,0 +1,13 @@
+CREATE TABLE IF NOT EXISTS public.curso
+(
+    id integer NOT NULL,
+    nome character varying(150) NOT NULL,
+    coordenador_id integer NOT NULL,
+    carga_horaria integer NOT NULL,
+    semestres integer NOT NULL,
+    faculdade_id integer NOT NULL,
+    PRIMARY KEY (id)
+);
+
+ALTER TABLE public.curso
+    OWNER to postgres;

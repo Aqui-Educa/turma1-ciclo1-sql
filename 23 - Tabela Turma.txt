@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS public.turma
+(
+    id integer NOT NULL,
+    professor_id integer NOT NULL,
+    curso_id integer NOT NULL,
+    turno_id integer NOT NULL,
+    dia_semana character varying(20) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+ALTER TABLE public.turma
+    OWNER to postgres;
