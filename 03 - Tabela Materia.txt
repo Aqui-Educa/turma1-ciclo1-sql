@@ -1,0 +1,8 @@
+CREATE TABLE public."Materia"
+(
+    id integer NOT NULL,
+    nome character varying COLLATE pg_catalog."default",
+    carga_horaria character varying COLLATE pg_catalog."default",
+    curso_id integer,
+    CONSTRAINT "Materia_pkey" PRIMARY KEY (id)
+)

@@ -1,0 +1,8 @@
+CREATE TABLE public."Faixa_salarial"
+(
+    id integer NOT NULL,
+    nivel integer,
+    valor real,
+    nivel_xp character varying COLLATE pg_catalog."default",
+    CONSTRAINT "Faixa_salarial_pkey" PRIMARY KEY (id)
+)

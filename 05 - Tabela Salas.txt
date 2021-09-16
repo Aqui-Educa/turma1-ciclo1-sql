@@ -1,0 +1,7 @@
+CREATE TABLE public."Salas"
+(
+    id integer NOT NULL,
+    capacidade integer,
+    tipo_sala character varying COLLATE pg_catalog."default",
+    CONSTRAINT "Salas_pkey" PRIMARY KEY (id)
+)

@@ -1,0 +1,6 @@
+CREATE TABLE public."Situacao"
+(
+    id integer NOT NULL,
+    status character varying COLLATE pg_catalog."default",
+    CONSTRAINT "Situacao_pkey" PRIMARY KEY (id)
+)

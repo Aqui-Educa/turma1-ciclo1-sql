@@ -1,0 +1,9 @@
+CREATE TABLE public."Endereco"
+(
+    id integer NOT NULL,
+    logradouro character varying COLLATE pg_catalog."default",
+    numero integer,
+    bairro character varying COLLATE pg_catalog."default",
+    cidade character varying COLLATE pg_catalog."default",
+    CONSTRAINT "Endereco_pkey" PRIMARY KEY (id)
+)
