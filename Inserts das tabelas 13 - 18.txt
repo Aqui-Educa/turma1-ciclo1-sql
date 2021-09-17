@@ -39,6 +39,15 @@ INSERT INTO public.funcionario(
 	('professor', 4, 18);
 	
 
+-- Inserts Professor T17
+
+INSERT INTO public.professor(
+	funcionario_id, materia_id, orientador)
+	VALUES (1, 1, 'true'), (1, 4, 'false'),
+	(7, 2, 'true'), (5, 8, 'false'),
+	(5, 5, 'false'), (7, 3, 'true');
+	
+
 -- Inserts Coordenador T18
 
 INSERT INTO public.coordenador(
