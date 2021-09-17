@@ -173,3 +173,79 @@ ALTER TABLE public.pessoa
     ON DELETE NO ACTION
     NOT VALID;
 ---------------------------------------------------------------------------------------------------------
+
+-- Bolsa
+
+ALTER TABLE public.bolsa
+    ADD CONSTRAINT bolsa_pessoa_fk FOREIGN KEY (pessoa_id)
+    REFERENCES public.pessoa (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+    
+    
+-- Coordenador
+
+ALTER TABLE public.coordenador
+    ADD CONSTRAINT coordenador_funcionario_fk FOREIGN KEY (funcionario_id)
+    REFERENCES public.funcionario (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+    
+    
+-- Evento
+
+ALTER TABLE public.evento
+    ADD CONSTRAINT evento_pessoa_fk FOREIGN KEY (pessoa_id)
+    REFERENCES public.pessoa (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+    
+    
+-- Funcionario
+
+ALTER TABLE public.funcionario
+    ADD CONSTRAINT funcionario_pagamento_fk FOREIGN KEY (salario_id)
+    REFERENCES public.pagamento (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+    
+ALTER TABLE public.funcionario
+    ADD CONSTRAINT funcionario_pessoa_fk FOREIGN KEY (pessoa_id)
+    REFERENCES public.pessoa (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+    
+
+-- Mensalidade
+
+ALTER TABLE public.mensalidade
+    ADD CONSTRAINT mensalidade_pessoa_fk FOREIGN KEY (pessoa_id)
+    REFERENCES public.pessoa (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+
+-- Professor
+
+ALTER TABLE public.professor
+    ADD CONSTRAINT professor_funcionario_fk FOREIGN KEY (funcionario_id)
+    REFERENCES public.funcionario (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+    
+ALTER TABLE public.professor
+    ADD CONSTRAINT professor_materia_fk FOREIGN KEY (materia_id)
+    REFERENCES public.materia (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+-------------------------------------------------------------------------------------------------
+
