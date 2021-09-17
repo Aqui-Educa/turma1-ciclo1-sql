@@ -11,5 +11,7 @@ CREATE TABLE IF NOT EXISTS public.horario
     id integer NOT NULL DEFAULT nextval('horario_seq'::regclass),
     hora_inicio character varying COLLATE pg_catalog."default" NOT NULL,
     hora_fim character varying COLLATE pg_catalog."default" NOT NULL,
-    CONSTRAINT horario_pkey PRIMARY KEY (id)
+    sala_id integer NOT NULL,
+    turma_id integer NOT NULL,
+    CONSTRAINT horario_pkey PRIMARY KEY (id),
 );
