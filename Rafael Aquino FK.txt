@@ -6,7 +6,7 @@ ALTER TABLE public.resultado
         ON DELETE NO ACTION
         NOT VALID;
 
-#--------------------------------------------------------------
+--------------------------------------------------------------
 
 
 ALTER TABLE public.aluno
@@ -30,7 +30,7 @@ ALTER TABLE public.aluno
         ON DELETE NO ACTION
         NOT VALID;
 
-#---------------------------------------------------------
+---------------------------------------------------------
 
 ALTER TABLE public.tcc
     ADD CONSTRAINT tcc_aluno_fk FOREIGN KEY (aluno_id)
@@ -53,7 +53,7 @@ ALTER TABLE public.tcc
         ON DELETE NO ACTION
         NOT VALID;
 
-#-----------------------------------
+-----------------------------------
 
 ALTER TABLE public.avaliacao
     ADD CONSTRAINT avaliacao_aluno_fk FOREIGN KEY (aluno_id)
@@ -62,5 +62,5 @@ ALTER TABLE public.avaliacao
         ON DELETE NO ACTION
         NOT VALID;
 
-#----------------------------------
+----------------------------------
 

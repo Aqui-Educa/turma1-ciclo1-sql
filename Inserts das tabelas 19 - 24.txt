@@ -26,11 +26,11 @@ INSERT INTO public.inscricao_vestibular(pessoa_id, curso_id, ano, situacao_id)
 		   (15, 1, '2019-01-01', 2);
 ----------------------------------------------------------------
 INSERT INTO public.turma(professor_id, curso_id, turno_id, dia_semana)
-	VALUES (00000, 1, 1, 'Segunda-feira'),
-		   (00000, 3, 1, 'Terca-feira'),
-		   (00000, 2, 2, 'Quarta-feira'),
-		   (00000, 3, 2, 'Quinta-feira'),
-		   (00000, 2, 3, 'Sexta-feira');
+	VALUES (1, 1, 1, 'Segunda-feira'),
+		   (5, 3, 1, 'Terca-feira'),
+		   (3, 2, 2, 'Quarta-feira'),
+		   (4, 3, 2, 'Quinta-feira'),
+		   (6, 2, 3, 'Sexta-feira');
 ----------------------------------------------------------------
 INSERT INTO public.locacao(pessoa_id, livro_id, data_locacao, data_devolucao)
 	VALUES (2, 11, '2021-04-18', '2021-04-25'),
