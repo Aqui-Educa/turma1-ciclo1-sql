@@ -247,5 +247,69 @@ ALTER TABLE public.professor
     ON DELETE NO ACTION
     NOT VALID;
 
+-- Resultado
+
+ALTER TABLE public.resultado
+    ADD CONSTRAINT resultado_avaliacao_fk FOREIGN KEY (avaliacao_id)
+        REFERENCES public.avaliacao (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID;
+
+-- Aluno
+
+ALTER TABLE public.aluno
+    ADD CONSTRAINT aluno_curso_fk FOREIGN KEY (curso_id)
+        REFERENCES public.curso (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID;
+    
+ALTER TABLE public.aluno
+    ADD CONSTRAINT aluno_pessoa_fk FOREIGN KEY (pessoa_id)
+        REFERENCES public.pessoa (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID;
+    
+ALTER TABLE public.aluno
+    ADD CONSTRAINT aluno_turma_fk FOREIGN KEY (turma_id)
+        REFERENCES public.turma (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID;
+
+-- Tcc
+ALTER TABLE public.tcc
+    ADD CONSTRAINT tcc_aluno_fk FOREIGN KEY (aluno_id)
+        REFERENCES public.aluno (matricula) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID;
+
+ALTER TABLE public.tcc
+    ADD CONSTRAINT tcc_coordenador_fk FOREIGN KEY (coordenador_id)
+        REFERENCES public.coordenador (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID;
+
+ALTER TABLE public.tcc
+    ADD CONSTRAINT tcc_situacao_fk FOREIGN KEY (situacao_id)
+        REFERENCES public.situacao (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID;
+
+-- Avaliacao
+
+ALTER TABLE public.avaliacao
+    ADD CONSTRAINT avaliacao_aluno_fk FOREIGN KEY (aluno_id)
+        REFERENCES public.aluno (matricula) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID;
+
+
 -------------------------------------------------------------------------------------------------
 
