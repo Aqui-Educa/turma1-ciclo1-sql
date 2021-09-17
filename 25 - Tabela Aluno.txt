@@ -15,4 +15,5 @@ CREATE TABLE IF NOT EXISTS public.aluno
     necessidade_especial character varying COLLATE pg_catalog."default",
     semestre integer NOT NULL,
     turma_id integer NOT NULL,
-    CONSTRAINT aluno_pkey PRIMARY KEY (matricula);
+    CONSTRAINT aluno_pkey PRIMARY KEY (matricula)
+);
