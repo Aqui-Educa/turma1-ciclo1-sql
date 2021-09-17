@@ -111,3 +111,65 @@ ALTER TABLE public.materia
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
+
+---------------------------------------------------------------------------------------------------------
+ALTER TABLE public.faculdade
+    ADD CONSTRAINT faculdade_endereco_fk FOREIGN KEY (endereco_id)
+    REFERENCES public.endereco (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+
+ALTER TABLE public.faculdade
+    ADD CONSTRAINT faculdade_contato_fk FOREIGN KEY (contato_id)
+    REFERENCES public.contato (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+---------------------------------------------------------------------------------------------------------
+ALTER TABLE public.pagamento
+    ADD CONSTRAINT pagamento_faixa_fk FOREIGN KEY (faixa_salarial_id)
+    REFERENCES public.faixa_salarial (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+---------------------------------------------------------------------------------------------------------
+ALTER TABLE public.editora
+    ADD CONSTRAINT editora_endereco_fk FOREIGN KEY (endereco_id)
+    REFERENCES public.endereco (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+
+ALTER TABLE public.editora
+    ADD CONSTRAINT editora_contato_fk FOREIGN KEY (contato_id)
+    REFERENCES public.contato (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+---------------------------------------------------------------------------------------------------------
+ALTER TABLE public.pessoa
+    ADD CONSTRAINT pessoa_endereco_fk FOREIGN KEY (endereco_id)
+    REFERENCES public.endereco (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+
+ALTER TABLE public.pessoa
+    ADD CONSTRAINT pessoa_contato_fk FOREIGN KEY (contato_id)
+    REFERENCES public.contato (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+
+ALTER TABLE public.pessoa
+    ADD CONSTRAINT pessoa_faculdade_fk FOREIGN KEY (faculdade_id)
+    REFERENCES public.faculdade (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+---------------------------------------------------------------------------------------------------------
