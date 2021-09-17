@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS public.aluno
     matricula regclass NOT NULL DEFAULT nextval('aluno_matricula_seq'::regclass),
     status character varying COLLATE pg_catalog."default" NOT NULL,
     pessoa_id integer NOT NULL,
-    curso_id character varying COLLATE pg_catalog."default" NOT NULL,
+    curso_id integer NOT NULL,
     maioridade character varying COLLATE pg_catalog."default",
     necessidade_especial character varying COLLATE pg_catalog."default",
     semestre integer NOT NULL,
