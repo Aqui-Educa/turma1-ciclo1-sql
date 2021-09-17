@@ -89,7 +89,7 @@ ALTER TABLE public.turma
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
----------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
 ALTER TABLE public.locacao
     ADD CONSTRAINT locacao_pessoa_fk FOREIGN KEY (pessoa_id)
     REFERENCES public.pessoa (id)
@@ -100,6 +100,14 @@ ALTER TABLE public.locacao
 ALTER TABLE public.locacao
     ADD CONSTRAINT locacao_livro_fk FOREIGN KEY (livro_id)
     REFERENCES public.livro (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+-----------------------------------------------------------------------------------------------------------
+
+ALTER TABLE public.materia
+    ADD CONSTRAINT material_curso_fk FOREIGN KEY (curso_id)
+    REFERENCES public.curso (id)
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
