@@ -13,5 +13,5 @@ CREATE TABLE IF NOT EXISTS public.horario
     hora_fim character varying COLLATE pg_catalog."default" NOT NULL,
     sala_id integer NOT NULL,
     turma_id integer NOT NULL,
-    CONSTRAINT horario_pkey PRIMARY KEY (id),
+    CONSTRAINT horario_pkey PRIMARY KEY (id)
 );
