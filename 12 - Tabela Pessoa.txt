@@ -18,4 +18,4 @@ CREATE TABLE public.pessoa
     CONSTRAINT pessoa_pkey PRIMARY KEY (id),
     CONSTRAINT u_cpf UNIQUE (cpf),
     CONSTRAINT u_rg UNIQUE (rg)
-)
+);
