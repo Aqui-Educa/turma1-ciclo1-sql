@@ -310,6 +310,21 @@ ALTER TABLE public.avaliacao
         ON DELETE NO ACTION
         NOT VALID;
 
+-- Horario
+
+ALTER TABLE public.horario
+    ADD CONSTRAINT horario_sala_id FOREIGN KEY (sala_id)
+        REFERENCES public.salas (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID;
+    
+ALTER TABLE public.horario
+    ADD CONSTRAINT horario_turma_id FOREIGN KEY (turma_id)
+        REFERENCES public.turma (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID;
 
 -------------------------------------------------------------------------------------------------
 
