@@ -1,0 +1,27 @@
+insert into aluno(status, pessoa_id, curso_id, maioridade, necessidade_especial, semestre, turma_id) values('Ativo',1,1,'sim','Não',7,4);
+insert into aluno(status, pessoa_id, curso_id, maioridade, necessidade_especial, semestre, turma_id) values('Ativo',2,1,'sim','Não',8,1);
+insert into aluno(status, pessoa_id, curso_id, maioridade, necessidade_especial, semestre, turma_id) values('Ativo',3,1,'sim','Não',8,3);
+insert into aluno(status, pessoa_id, curso_id, maioridade, necessidade_especial, semestre, turma_id) values('Ativo',4,1,'sim','Não',2,5);
+insert into aluno(status, pessoa_id, curso_id, maioridade, necessidade_especial, semestre, turma_id) values('Ativo',5,2,'sim','Não',1,3);
+insert into aluno(status, pessoa_id, curso_id, maioridade, necessidade_especial, semestre, turma_id) values('Ativo',6,2,'sim','cadeirante',2,1);
+insert into aluno(status, pessoa_id, curso_id, maioridade, necessidade_especial, semestre, turma_id) values('Ativo',7,2,'sim','Não',1,1);
+insert into aluno(status, pessoa_id, curso_id, maioridade, necessidade_especial, semestre, turma_id) values('Ativo',8,1,'sim','Não',6,3);
+insert into aluno(status, pessoa_id, curso_id, maioridade, necessidade_especial, semestre, turma_id) values('Ativo',9,1,'sim','Não',7,1);
+insert into aluno(status, pessoa_id, curso_id, maioridade, necessidade_especial, semestre, turma_id) values('Ativo',10,1,'sim','Não',1,5);
+
+
+
+insert into horario(hora_inicio,hora_fim,sala_id,turma_id) values ('7h00','8h40',1,2),('8h40','10h20',1,2),('11h00','12h40',2,1),('7h00','8h40',2,1);
+
+
+insert into tcc(aluno_id,coordenador_id,titulo_tcc,data_criacao,situacao_id) values (1025,1,'TI na vida pessoal','2021-04-03',1);
+insert into tcc(aluno_id,coordenador_id,titulo_tcc,data_criacao,situacao_id) values (1026,1,'TI na psicologia','2021-04-03',1);
+insert into tcc(aluno_id,coordenador_id,titulo_tcc,data_criacao,situacao_id) values (1027,1,'TI no futebol','2021-08-03',1);
+insert into tcc(aluno_id,coordenador_id,titulo_tcc,data_criacao,situacao_id) values (1028,1,'TI na natureza','2017-04-12',1);
+insert into tcc(aluno_id,coordenador_id,titulo_tcc,data_criacao,situacao_id) values (1029,1,'TI na politica','2018-10-03',1);
+
+
+insert into avaliacao(aluno_id,materia_id) values (1026,1),(1026,2),(1027,1),(1027,2),(1028,1),(1028,2);
+
+
+insert into resultado(nota,avaliacao_id) values (5,1),(10,2),(1,3),(7,4),(8,5);
