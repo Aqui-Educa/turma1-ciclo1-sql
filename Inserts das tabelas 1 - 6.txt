@@ -20,6 +20,12 @@ INSERT INTO public.endereco(
 	('sggjhfjh', 21365, 'fsfsghsg', 'fsfsgsgs'), ('qqrfd', 216, 'gsfgsfqw', 'fsfsgs'), ('qeqwrr', 879, 'fafasds', 'dadafa'), ('rqrdr', 3524, 'rqrqewrq', 'qrqreqr'),
 	('fsdfsfdsg', 2468, 'gsdfgsdgds', 'gsdbcxb'), ('bmfbjhhjf', 549, 'fgdgdfgs', 'afafa'), ('fvcbvc', 23135, 'ewqreqr', 'wtretq');
 
+INSERT INTO public.materia(
+	nome, carga_horaria, curso_id)
+	VALUES ('matematica discreta', 80, 2), ('programação 1', 80, 2), ('banco de dados', 60, 2), ('tecnologias movéis', 60, 2),
+	('primeira guerra', 60, 3), ('invasão mongol no japão', 80, 3), ('feudalismo', 80, 3), ('guerra fria', 70, 3);
+	
+
 INSERT INTO public.faixa_salarial(
 	nivel, valor, nivel_xp)
 	VALUES (001, 1000.00, '0-1'), (002, 1300.00, '1-2'), (003, 1500.00, '3-4'), (004, 2000.00, '4-5'),
