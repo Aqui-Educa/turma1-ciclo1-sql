@@ -2,7 +2,7 @@ CREATE TABLE public.materia
 (
     id integer NOT NULL,
     nome character varying COLLATE pg_catalog."default",
-    carga_horaria character varying COLLATE pg_catalog."default",
+    carga_horaria integer,
     curso_id integer,
     CONSTRAINT materia_pkey PRIMARY KEY (id)
 );
