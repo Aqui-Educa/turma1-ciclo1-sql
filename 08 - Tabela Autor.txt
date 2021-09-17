@@ -10,4 +10,4 @@ CREATE TABLE public.autor
     id integer NOT NULL DEFAULT (nextval('autor_id_seq'::regclass))::regclass,
     nome character varying(200) COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT autor_pkey PRIMARY KEY (id)
-)
+);
