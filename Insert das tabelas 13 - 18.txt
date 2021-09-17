@@ -1,0 +1,7 @@
+-- Inserts Funcionario T16
+
+INSERT INTO public.funcionario(
+	cargo, salario_id, pessoa_id)
+	VALUES ('professor', 4, 7), ('coordenador', 6, 3), ('zelador', 2, 10), 
+	('recepcionista', 2, 15), ('professor', 5, 13), ('coordenador', 7, 4),
+	('professor', 4, 18);
