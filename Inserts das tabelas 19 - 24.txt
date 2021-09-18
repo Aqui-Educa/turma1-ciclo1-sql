@@ -1,5 +1,5 @@
 INSERT INTO public.biblioteca(faculdade_id, funcionario_id)
-	VALUES (1, 4)
+	VALUES (1, 4);
 ----------------------------------------------------------------
 INSERT INTO public.curso(nome, coordenador_id, carga_horaria, semestres, faculdade_id)
 	VALUES ('Jornalismo', 1, 1200, 6, 1),
