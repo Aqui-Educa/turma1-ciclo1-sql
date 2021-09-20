@@ -1,0 +1,840 @@
+CREATE DATABASE "Faculdade_AE"
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    CONNECTION LIMIT = -1;
+
+------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE public.contato
+(
+    id integer NOT NULL,
+    email character varying COLLATE pg_catalog."default",
+    telefone character varying COLLATE pg_catalog."default",
+    CONSTRAINT contato_pkey PRIMARY KEY (id),
+    CONSTRAINT u_email UNIQUE (email),
+    CONSTRAINT u_telefone UNIQUE (telefone)
+);
+
+CREATE SEQUENCE contato_id_seq
+INCREMENT 1 
+MINVALUE 1
+ MAXVALUE 9223372036854775807
+ START 1
+ CACHE 1;
+ 
+ALTER TABLE contato ALTER COLUMN id SET DEFAULT (nextval('contato_id_seq'::regclass))::regclass;
+------------------------------------------------------------------------------------------------------------
+CREATE TABLE public.endereco
+(
+    id integer NOT NULL,
+    logradouro character varying COLLATE pg_catalog."default",
+    numero integer,
+    bairro character varying COLLATE pg_catalog."default",
+    cidade character varying COLLATE pg_catalog."default",
+    CONSTRAINT endereco_pkey PRIMARY KEY (id)
+);
+
+CREATE SEQUENCE endereco_id_seq
+INCREMENT 1 
+MINVALUE 1
+ MAXVALUE 9223372036854775807
+ START 1
+ CACHE 1;
+ 
+ALTER TABLE endereco ALTER COLUMN id SET DEFAULT (nextval('endereco_id_seq'::regclass))::regclass;
+------------------------------------------------------------------------------------------------------------
+CREATE TABLE public.faixa_salarial
+(
+    id integer NOT NULL,
+    nivel integer,
+    valor real,
+    nivel_xp character varying COLLATE pg_catalog."default",
+    CONSTRAINT faixa_salarial_pkey PRIMARY KEY (id)
+);
+
+CREATE SEQUENCE faixa_salarial_id_seq
+INCREMENT 1 
+MINVALUE 1
+ MAXVALUE 9223372036854775807
+ START 1
+ CACHE 1;
+ 
+ALTER TABLE faixa_salarial ALTER COLUMN id SET DEFAULT (nextval('faixa_salarial_id_seq'::regclass))::regclass;
+------------------------------------------------------------------------------------------------------------
+CREATE TABLE public.salas
+(
+    id integer NOT NULL,
+    capacidade integer,
+    tipo_sala character varying COLLATE pg_catalog."default",
+    CONSTRAINT salas_pkey PRIMARY KEY (id)
+);
+
+CREATE SEQUENCE salas_id_seq
+INCREMENT 1 
+MINVALUE 1
+ MAXVALUE 9223372036854775807
+ START 1
+ CACHE 1;
+ 
+ALTER TABLE salas ALTER COLUMN id SET DEFAULT (nextval('salas_id_seq'::regclass))::regclass;
+------------------------------------------------------------------------------------------------------------
+CREATE TABLE public.situacao
+(
+    id integer NOT NULL,
+    status character varying COLLATE pg_catalog."default",
+    CONSTRAINT situacao_pkey PRIMARY KEY (id),
+    CONSTRAINT u_status UNIQUE (status)
+);
+
+CREATE SEQUENCE Situacao_id_seq
+INCREMENT 1 
+MINVALUE 1
+ MAXVALUE 9223372036854775807
+ START 1
+ CACHE 1;
+ 
+ALTER TABLE situacao ALTER COLUMN id SET DEFAULT (nextval('situacao_id_seq'::regclass))::regclass;
+------------------------------------------------------------------------------------------------------------
+CREATE SEQUENCE public.turno_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 999999999
+    CACHE 1;
+
+CREATE TABLE public.turno
+(
+    id integer NOT NULL DEFAULT (nextval('turno_id_seq'::regclass))::regclass,
+    periodo character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT turno_pkey PRIMARY KEY (id)
+);
+------------------------------------------------------------------------------------------------------------
+CREATE SEQUENCE public.autor_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 999999999
+    CACHE 1;
+
+CREATE TABLE public.autor
+(
+    id integer NOT NULL DEFAULT (nextval('autor_id_seq'::regclass))::regclass,
+    nome character varying(200) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT autor_pkey PRIMARY KEY (id)
+);
+------------------------------------------------------------------------------------------------------------
+CREATE SEQUENCE public.faculdade_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 999999999
+    CACHE 1;
+
+CREATE TABLE public.faculdade
+(
+    id integer NOT NULL DEFAULT (nextval('faculdade_id_seq'::regclass))::regclass,
+    nome character varying(200) COLLATE pg_catalog."default" NOT NULL,
+    cnpj character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    endereco_id integer NOT NULL,
+    contato_id integer NOT NULL,
+    CONSTRAINT faculdade_pkey PRIMARY KEY (id),
+    CONSTRAINT u_cnpj UNIQUE (cnpj)
+);
+
+ALTER TABLE public.faculdade
+    ADD CONSTRAINT faculdade_endereco_fk FOREIGN KEY (endereco_id)
+    REFERENCES public.endereco (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+
+ALTER TABLE public.faculdade
+    ADD CONSTRAINT faculdade_contato_fk FOREIGN KEY (contato_id)
+    REFERENCES public.contato (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+------------------------------------------------------------------------------------------------------------
+CREATE SEQUENCE public.pagamento_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 999999999
+    CACHE 1;
+
+CREATE TABLE public.pagamento
+(
+    id integer NOT NULL DEFAULT (nextval('pagamento_id_seq'::regclass))::regclass,
+    faixa_salarial_id integer NOT NULL,
+    data date NOT NULL,
+    CONSTRAINT pagamento_pkey PRIMARY KEY (id)
+);
+
+ALTER TABLE public.pagamento
+    ADD CONSTRAINT pagamento_faixa_fk FOREIGN KEY (faixa_salarial_id)
+    REFERENCES public.faixa_salarial (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+------------------------------------------------------------------------------------------------------------
+CREATE SEQUENCE public.editora_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 999999999
+    CACHE 1;
+
+CREATE TABLE public.editora
+(
+    id integer NOT NULL DEFAULT (nextval('editora_id_seq'::regclass))::regclass,
+    nome character varying(200) COLLATE pg_catalog."default" NOT NULL,
+    endereco_id integer NOT NULL,
+    contato_id integer NOT NULL,
+    CONSTRAINT editora_pkey PRIMARY KEY (id)
+);
+
+ALTER TABLE public.editora
+    ADD CONSTRAINT editora_endereco_fk FOREIGN KEY (endereco_id)
+    REFERENCES public.endereco (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+
+ALTER TABLE public.editora
+    ADD CONSTRAINT editora_contato_fk FOREIGN KEY (contato_id)
+    REFERENCES public.contato (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+------------------------------------------------------------------------------------------------------------
+CREATE SEQUENCE public.pessoa_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 999999999
+    CACHE 1;
+
+CREATE TABLE public.pessoa
+(
+    id integer NOT NULL DEFAULT (nextval('pessoa_id_seq'::regclass))::regclass,
+    nome character varying(200) COLLATE pg_catalog."default" NOT NULL,
+    contato_id integer NOT NULL,
+    endereco_id integer NOT NULL,
+    rg character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    cpf character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    faculdade_id integer NOT NULL,
+    genero character varying(200) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT pessoa_pkey PRIMARY KEY (id),
+    CONSTRAINT u_cpf UNIQUE (cpf),
+    CONSTRAINT u_rg UNIQUE (rg)
+);
+
+ALTER TABLE public.pessoa
+    ADD CONSTRAINT pessoa_endereco_fk FOREIGN KEY (endereco_id)
+    REFERENCES public.endereco (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+
+ALTER TABLE public.pessoa
+    ADD CONSTRAINT pessoa_contato_fk FOREIGN KEY (contato_id)
+    REFERENCES public.contato (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+
+ALTER TABLE public.pessoa
+    ADD CONSTRAINT pessoa_faculdade_fk FOREIGN KEY (faculdade_id)
+    REFERENCES public.faculdade (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+------------------------------------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS public.evento
+(
+    id integer NOT NULL,
+    pessoa_id integer NOT NULL,
+    nome character varying(250) NOT NULL,
+    tipo character varying(100) NOT NULL,
+    data date NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE SEQUENCE evento_id_seq
+INCREMENT 1
+MINVALUE 1
+MAXVALUE 999999999
+START 1
+CACHE 1;
+
+ALTER TABLE evento ALTER COLUMN id SET DEFAULT (nextval('evento_id_seq'::regclass))::regclass;
+
+ALTER TABLE public.evento
+    ADD CONSTRAINT evento_pessoa_fk FOREIGN KEY (pessoa_id)
+    REFERENCES public.pessoa (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+------------------------------------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS public.mensalidade
+(
+    id integer NOT NULL,
+    pessoa_id integer NOT NULL,
+    data date NOT NULL,
+    valor numeric(9, 2) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE SEQUENCE mensalidade_id_seq
+INCREMENT 1
+MINVALUE 1
+MAXVALUE 999999999
+START 1
+CACHE 1;
+
+ALTER TABLE mensalidade ALTER COLUMN id SET DEFAULT (nextval('mensalidade_id_seq'::regclass))::regclass;
+
+
+ALTER TABLE public.mensalidade
+    ADD CONSTRAINT mensalidade_pessoa_fk FOREIGN KEY (pessoa_id)
+    REFERENCES public.pessoa (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+------------------------------------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS public.bolsa
+(
+    id integer NOT NULL,
+    pessoa_id integer NOT NULL,
+    tipo character varying(100) NOT NULL,
+    porcentagem numeric(9, 2) NOT NULL,
+    inicio date NOT NULL,
+    fim date,
+    PRIMARY KEY (id)
+);
+
+CREATE SEQUENCE bolsa_id_seq
+INCREMENT 1
+MINVALUE 1
+MAXVALUE 999999999
+START 1
+CACHE 1;
+
+ALTER TABLE bolsa ALTER COLUMN id SET DEFAULT (nextval('bolsa_id_seq'::regclass))::regclass;
+
+ALTER TABLE public.bolsa
+    ADD CONSTRAINT bolsa_pessoa_fk FOREIGN KEY (pessoa_id)
+    REFERENCES public.pessoa (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+------------------------------------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS public.funcionario
+(
+    id integer NOT NULL,
+    cargo character varying(100) NOT NULL,
+    salario_id integer NOT NULL,
+    pessoa_id integer NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE SEQUENCE funcionario_id_seq
+INCREMENT 1
+MINVALUE 1
+MAXVALUE 999999999
+START 1
+CACHE 1;
+
+ALTER TABLE funcionario ALTER COLUMN id SET DEFAULT (nextval('funcionario_id_seq'::regclass))::regclass;
+
+
+ALTER TABLE public.funcionario
+    ADD CONSTRAINT funcionario_pagamento_fk FOREIGN KEY (salario_id)
+    REFERENCES public.pagamento (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+    
+ALTER TABLE public.funcionario
+    ADD CONSTRAINT funcionario_pessoa_fk FOREIGN KEY (pessoa_id)
+    REFERENCES public.pessoa (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+------------------------------------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS public.coordenador
+(
+    id integer NOT NULL,
+    funcionario_id integer NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE SEQUENCE coordenador_id_seq
+INCREMENT 1
+MINVALUE 1
+MAXVALUE 999999999
+START 1
+CACHE 1;
+
+ALTER TABLE coordenador ALTER COLUMN id SET DEFAULT (nextval('coordenador_id_seq'::regclass))::regclass;
+
+
+ALTER TABLE public.coordenador
+    ADD CONSTRAINT coordenador_funcionario_fk FOREIGN KEY (funcionario_id)
+    REFERENCES public.funcionario (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+------------------------------------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS public.biblioteca
+(
+    id integer NOT NULL,
+    faculdade_id integer NOT NULL,
+    funcionario_id integer NOT NULL,
+    PRIMARY KEY (id)
+);
+
+
+CREATE SEQUENCE public.biblioteca_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 999999;
+
+ALTER TABLE public.biblioteca
+    ALTER COLUMN id SET DEFAULT nextval('biblioteca_seq')::regclass;
+
+
+ALTER TABLE public.biblioteca
+    ADD CONSTRAINT biblioteca_funcionario_fk FOREIGN KEY (funcionario_id)
+    REFERENCES public.funcionario (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+
+ALTER TABLE public.biblioteca
+    ADD CONSTRAINT biblioteca_faculdade_fk FOREIGN KEY (faculdade_id)
+    REFERENCES public.faculdade (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+------------------------------------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS public.curso
+(
+    id integer NOT NULL,
+    nome character varying(150) NOT NULL,
+    coordenador_id integer NOT NULL,
+    carga_horaria integer NOT NULL,
+    semestres integer NOT NULL,
+    faculdade_id integer NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE SEQUENCE public.curso_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 999999;
+
+ALTER TABLE public.curso
+    ALTER COLUMN id SET DEFAULT nextval('curso_seq')::regclass;
+
+
+ALTER TABLE public.curso
+    ADD CONSTRAINT curso_coordenador_fk FOREIGN KEY (coordenador_id)
+    REFERENCES public.coordenador (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+ALTER TABLE public.curso
+    ADD CONSTRAINT curso_faculdade_fk FOREIGN KEY (faculdade_id)
+    REFERENCES public.faculdade (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+------------------------------------------------------------------------------------------------------------
+CREATE TABLE public.materia
+(
+    id integer NOT NULL,
+    nome character varying COLLATE pg_catalog."default",
+    carga_horaria integer,
+    curso_id integer,
+    CONSTRAINT materia_pkey PRIMARY KEY (id)
+);
+
+CREATE SEQUENCE materia_id_seq
+INCREMENT 1 
+MINVALUE 1
+ MAXVALUE 9223372036854775807
+ START 1
+ CACHE 1;
+ 
+ALTER TABLE materia ALTER COLUMN id SET DEFAULT (nextval('materia_id_seq'::regclass))::regclass;
+
+
+ALTER TABLE public.materia
+    ADD CONSTRAINT material_curso_fk FOREIGN KEY (curso_id)
+    REFERENCES public.curso (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+------------------------------------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS public.professor
+(
+    id integer NOT NULL,
+    funcionario_id integer NOT NULL,
+    materia_id integer NOT NULL,
+    orientador boolean NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE SEQUENCE professor_id_seq
+INCREMENT 1
+MINVALUE 1
+MAXVALUE 999999999
+START 1
+CACHE 1;
+
+ALTER TABLE professor ALTER COLUMN id SET DEFAULT (nextval('professor_id_seq'::regclass))::regclass;
+
+
+ALTER TABLE public.professor
+    ADD CONSTRAINT professor_funcionario_fk FOREIGN KEY (funcionario_id)
+    REFERENCES public.funcionario (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+    
+ALTER TABLE public.professor
+    ADD CONSTRAINT professor_materia_fk FOREIGN KEY (materia_id)
+    REFERENCES public.materia (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+------------------------------------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS public.livro
+(
+    id integer NOT NULL,
+    titulo character varying(200) NOT NULL,
+    autor_id integer NOT NULL,
+    editora_id integer NOT NULL,
+    biblioteca_id integer NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE SEQUENCE public.livro_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 999999;
+
+ALTER TABLE public.livro
+    ALTER COLUMN id SET DEFAULT nextval('livro_seq')::regclass;
+
+
+ALTER TABLE public.livro
+    ADD CONSTRAINT livro_biblioteca_fk FOREIGN KEY (biblioteca_id)
+    REFERENCES public.biblioteca (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+ALTER TABLE public.livro
+    ADD CONSTRAINT livro_autor_fk FOREIGN KEY (autor_id)
+    REFERENCES public.autor (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+ALTER TABLE public.livro
+    ADD CONSTRAINT livro_editora_fk FOREIGN KEY (editora_id)
+    REFERENCES public.editora (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+------------------------------------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS public.inscricao_vestibular
+(
+    id integer NOT NULL,
+    pessoa_id integer NOT NULL,
+    curso_id integer NOT NULL,
+    ano date NOT NULL,
+    situacao_id integer NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE SEQUENCE public.inscricao_vestibular_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 999999;
+
+ALTER TABLE public.inscricao_vestibular
+    ALTER COLUMN id SET DEFAULT nextval('inscricao_vestibular_seq')::regclass;
+
+
+ALTER TABLE public.inscricao_vestibular
+    ADD CONSTRAINT inscricao_pessoa_fk FOREIGN KEY (pessoa_id)
+    REFERENCES public.pessoa (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+ALTER TABLE public.inscricao_vestibular
+    ADD CONSTRAINT inscricao_curso_fk FOREIGN KEY (curso_id)
+    REFERENCES public.curso (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+ALTER TABLE public.inscricao_vestibular
+    ADD CONSTRAINT inscricao_situacao_fk FOREIGN KEY (situacao_id)
+    REFERENCES public.situacao (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+------------------------------------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS public.turma
+(
+    id integer NOT NULL,
+    professor_id integer NOT NULL,
+    curso_id integer NOT NULL,
+    turno_id integer NOT NULL,
+    dia_semana character varying(20) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE SEQUENCE public.turma_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 999999;
+
+ALTER TABLE public.turma
+    ALTER COLUMN id SET DEFAULT nextval('turma_seq')::regclass;
+
+
+ALTER TABLE public.turma
+    ADD CONSTRAINT turma_professor_fk FOREIGN KEY (professor_id)
+    REFERENCES public.professor (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+ALTER TABLE public.turma
+    ADD CONSTRAINT turma_curso_fk FOREIGN KEY (curso_id)
+    REFERENCES public.curso (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+ALTER TABLE public.turma
+    ADD CONSTRAINT turma_turno_fk FOREIGN KEY (turno_id)
+    REFERENCES public.turno (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+------------------------------------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS public.locacao
+(
+    id integer NOT NULL,
+    pessoa_id integer NOT NULL,
+    livro_id integer NOT NULL,
+    data_locacao date,
+    data_devolucao date,
+    PRIMARY KEY (id)
+);
+
+CREATE SEQUENCE public.locacao_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 999999;
+
+ALTER TABLE public.locacao
+    ALTER COLUMN id SET DEFAULT nextval('locacao_seq')::regclass;
+
+
+ALTER TABLE public.locacao
+    ADD CONSTRAINT locacao_pessoa_fk FOREIGN KEY (pessoa_id)
+    REFERENCES public.pessoa (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+ALTER TABLE public.locacao
+    ADD CONSTRAINT locacao_livro_fk FOREIGN KEY (livro_id)
+    REFERENCES public.livro (id)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+------------------------------------------------------------------------------------------------------------
+CREATE SEQUENCE public.aluno_matricula_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 999999
+    CACHE 1;
+
+CREATE TABLE IF NOT EXISTS public.aluno
+(
+    matricula regclass NOT NULL DEFAULT nextval('aluno_matricula_seq'::regclass),
+    status character varying COLLATE pg_catalog."default" NOT NULL,
+    pessoa_id integer NOT NULL,
+    curso_id integer NOT NULL,
+    maioridade character varying COLLATE pg_catalog."default",
+    necessidade_especial character varying COLLATE pg_catalog."default",
+    semestre integer NOT NULL,
+    turma_id integer NOT NULL,
+    CONSTRAINT aluno_pkey PRIMARY KEY (matricula)
+);
+
+
+ALTER TABLE public.aluno
+    ADD CONSTRAINT aluno_curso_fk FOREIGN KEY (curso_id)
+        REFERENCES public.curso (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID;
+    
+ALTER TABLE public.aluno
+    ADD CONSTRAINT aluno_pessoa_fk FOREIGN KEY (pessoa_id)
+        REFERENCES public.pessoa (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID;
+    
+ALTER TABLE public.aluno
+    ADD CONSTRAINT aluno_turma_fk FOREIGN KEY (turma_id)
+        REFERENCES public.turma (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID;
+------------------------------------------------------------------------------------------------------------
+CREATE SEQUENCE public.horario_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 999999
+    CACHE 1;
+
+
+CREATE TABLE IF NOT EXISTS public.horario
+(
+    id integer NOT NULL DEFAULT nextval('horario_seq'::regclass),
+    hora_inicio character varying COLLATE pg_catalog."default" NOT NULL,
+    hora_fim character varying COLLATE pg_catalog."default" NOT NULL,
+    sala_id integer NOT NULL,
+    turma_id integer NOT NULL,
+    CONSTRAINT horario_pkey PRIMARY KEY (id)
+);
+
+
+ALTER TABLE public.horario
+    ADD CONSTRAINT horario_sala_id FOREIGN KEY (sala_id)
+        REFERENCES public.salas (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID;
+    
+ALTER TABLE public.horario
+    ADD CONSTRAINT horario_turma_id FOREIGN KEY (turma_id)
+        REFERENCES public.turma (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID;
+------------------------------------------------------------------------------------------------------------
+CREATE SEQUENCE public.tcc_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 999999
+    CACHE 1;
+
+
+CREATE TABLE IF NOT EXISTS public.tcc
+(
+    id integer NOT NULL DEFAULT nextval('tcc_seq'::regclass),
+    aluno_id integer NOT NULL,
+    coordenador_id integer NOT NULL,
+    titulo_tcc character varying COLLATE pg_catalog."default" NOT NULL,
+    data_criacao date NOT NULL,
+    situacao_id integer NOT NULL,
+    CONSTRAINT tcc_pkey PRIMARY KEY (id)
+);
+
+
+ALTER TABLE public.tcc
+    ADD CONSTRAINT tcc_aluno_fk FOREIGN KEY (aluno_id)
+        REFERENCES public.aluno (matricula) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID;
+
+ALTER TABLE public.tcc
+    ADD CONSTRAINT tcc_coordenador_fk FOREIGN KEY (coordenador_id)
+        REFERENCES public.coordenador (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID;
+
+ALTER TABLE public.tcc
+    ADD CONSTRAINT tcc_situacao_fk FOREIGN KEY (situacao_id)
+        REFERENCES public.situacao (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID;
+------------------------------------------------------------------------------------------------------------
+CREATE SEQUENCE public.avaliacao_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 999999
+    CACHE 1;
+
+CREATE TABLE IF NOT EXISTS public.avaliacao
+(
+    id integer NOT NULL DEFAULT nextval('avaliacao_seq'::regclass),
+    aluno_id integer NOT NULL,
+    materia_id integer NOT NULL,
+    CONSTRAINT avaliacao_pkey PRIMARY KEY (id)
+);
+
+
+ALTER TABLE public.avaliacao
+    ADD CONSTRAINT avaliacao_aluno_fk FOREIGN KEY (aluno_id)
+        REFERENCES public.aluno (matricula) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID;
+
+------------------------------------------------------------------------------------------------------------
+CREATE SEQUENCE public.resultado_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 999999
+    CACHE 1;
+
+CREATE TABLE IF NOT EXISTS public.resultado
+(
+    id integer NOT NULL DEFAULT nextval('resultado_seq'::regclass),
+    nota integer NOT NULL,
+    avaliacao_id integer NOT NULL,
+    CONSTRAINT resultado_pkey PRIMARY KEY (id)
+);
+
+
+ALTER TABLE public.resultado
+    ADD CONSTRAINT resultado_avaliacao_fk FOREIGN KEY (avaliacao_id)
+        REFERENCES public.avaliacao (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID;

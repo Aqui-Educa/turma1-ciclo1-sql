@@ -1,0 +1,251 @@
+INSERT INTO public.contato(
+	email, telefone)
+	VALUES ('abfdhaeyw@gmail.com', 4657981321), ('hgkjfiktjgrh@gmail.com', 231354685), ('gbfgnsgngs@gmail.com', 21354685),
+	('adasfdcx@gmail.com', 574846521), ('xvzxcbvc@gmail.com', 655132465), ('qrerdafq@gmail.com', 215498753), ('vcxvsdaq@gmail.com', 356685746),
+	('bhdfhjdg@gmail.com', 798546551), ('xvcbsbne@gmail.com', 587989651), ('gfdhfsgfcvbcfs@gmail.com', 498521321), ('hfjkhndb@gmail.com', 79513202),
+	('afdafasf@gmail.com', 254354689), ('jhlhjyfg@gmail.com', 213524687), ('gu4rfdasdxvvgf@gmail.com', 321352468), ('vcvzcvad@gmail.com', 85498436),
+	('mvbmvbnb@gmail.com', 546983233), ('nkghkhgb@gmail.com', 132165464), ('mmomaldkasdasd@gmail.com', 879841623), ('mdhkdjgd@gmail.com', 54689512),
+	('nmvbnmnc@gmail.com', 879854532), ('mnbvbnda@gmail.com', 216354994), ('bmvcvxzcasdsad@gmail.com', 899784232), ('nbmvbncv@gmail.com', 79895465),
+	('hkgkllhg@gmail.com', 321654688), ('dsasdafa@gmail.com', 546521354), ('sdasdasdsadsa@gmail.com', 4654654625), ('asddasda@gmail.com', 21354648432),
+	('mclxkvcvmnxk@gmail.com', 213216854), ('dsdadasdada@gmail.com', 321657469), ('kmlkjlikjh@gmail.com', 51321312);
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO public.endereco(
+	logradouro, numero, bairro, cidade)
+	VALUES ('mnmfhnm', 56, 'dasdadas', 'sgdsvsad'), ('acacasfasf', 789, 'vcxzvz', 'vacasc'), ('bxdcvbs', 235, 'bvcbxzc', 'adasdasd'), ('uyioyuik', 698, 'adsadasd', 'dasvcvav'),
+	('bnvcbnc', 489, 'nvcbcv', 'iaudfg al'), ('lkjfsdhblfkjad', 213, 'gsgfbgfb', 'fagfxc'), ('dasfdfx', 2165476, 'asdasdf', 'dadsfx'), ('dadasda', 7985, 'fdfdfa', 'daasfadg'),
+	('dasdad', 21324, 'kgdhjhhsf', 'hddkhkjgk'), ('khjfkjhfld', 5468, 'adsagadgc', 'dagdsagdsf'), ('gsgsfaf', 58462, 'fsfsgsghsg', 'hsfdfsdf'), ('fxvxaf', 012, 'fadfawfw', 'eqweqwrd'),
+	('dadasdas', 587984, 'fafgawt', 'sgscgdfgds'), ('hdhdshs', 12324, 'sghhgfhgj', 'gdgdhdh'), ('gsgsfgcx', 8765, 'fsfagaa', 'hfhfghdfhd'), ('dadasd', 2315, 'bcvbxvcxv', 'gcxgxvzbn'),
+	('bvbcbcb', 54968, 'rwrwtwtrf', 'fafafafqq'), ('gsgcbsvbas', 2135, 'fafafadfgc', 'dadagsvc'), ('kgkhgkghj', 49885, 'jgjghjfgjfr', 'mgfhfh'), ('vxvxcvx', 2315, 'vxvxcvxcv', 'afdgcxsd'),
+	('lhglhg', 21635, 'gsgxfgc', 'gsfsdfsdf'), ('fsfsafew', 546, 'wrwqfdsf', 'fsfdsfsd'), ('gagaga', 3215, 'rdfdgdagda', 'qwrewqrqwr'), ('dffgbvb', 8795, 'rqrsraes', 'eqrerd'),
+	('sggjhfjh', 21365, 'fsfsghsg', 'fsfsgsgs'), ('qqrfd', 216, 'gsfgsfqw', 'fsfsgs'), ('qeqwrr', 879, 'fafasds', 'dadafa'), ('rqrdr', 3524, 'rqrqewrq', 'qrqreqr'),
+	('fsdfsfdsg', 2468, 'gsdfgsdgds', 'gsdbcxb'), ('bmfbjhhjf', 549, 'fgdgdfgs', 'afafa'), ('fvcbvc', 23135, 'ewqreqr', 'wtretq');
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO public.faixa_salarial(
+	nivel, valor, nivel_xp)
+	VALUES (001, 1000.00, '0-1'), (002, 1300.00, '1-2'), (003, 1500.00, '3-4'), (004, 2000.00, '4-5'),
+	(005, 2300.00, '5-6'), (006, 2500.00, '6-7'), (007, 3000.00, '7-8'), (008, 3500.00, '8-9'),
+	(009, 4500.00, '9-10'), (010, 5000.00, '10-11');
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO public.salas(
+	capacidade, tipo_sala)
+	VALUES (40, 'sala de aula'), (40, 'sala de aula'), (40, 'sala de aula'), (40, 'sala de aula'),
+	(45, 'laboratorio'), (45, 'laboratorio'), (45, 'laboratorio'), (45, 'laboratorio'), (200, 'auditorio');
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO public.situacao(
+	status)
+	VALUES ('Reprovado'), ('aprovado'), ('em andamento'), ('pendente'), ('aguardando pagamento'), ('cursando'),
+	('concludente'), ('curso trancado');
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO public.turno(
+	periodo)
+	VALUES ('manhã'), ('tarde'), ('noite');
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO public.autor(nome)
+	VALUES ('fsdsadfsadf'), ('khjgkhgjk'), ('adfads'), ('hjkhjk'), ('ghjkhjk'),
+	('rytuu'), ('ioioiokjkjk'), ('qewrewqr'), ('erwtert'), ('qewrewr'), ('lkhjhkj'), ('ytuytuut');
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO public.faculdade(nome, cnpj, endereco_id, contato_id)
+	VALUES ('Aqui Educa', '5435345', 1, 1);
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO public.pagamento(
+	faixa_salarial_id, data)
+	VALUES (1, '2008-09-02'), (2, '2009-04-01'), (3, '2010-08-07'), (4, '2012-09-12'),
+	(5, '2004-12-03'),(5, '2008-04-06'), (6, '2002-09-02'), (7, '2001-03-09'), (8, '2001-07-02'), 
+	(9, '2008-10-02'), (10, '2006-06-01'),(1, '2004-11-16'), (2, '2008-10-30'), (3, '2006-11-29'), 
+	(4, '2003-08-17'), (5, '2008-10-18'), (6, '2019-10-01'), (7, '2018-09-14'), (8, '2020-10-01'), 
+	(9, '2018-09-07'), (10, '2020-06-23'), (1, '2021-09-02'), (2, '2021-09-17'), (3, '2015-10-24'), 
+	(4, '2016-02-19'), (5, '2013-06-08'), (6, '2018-11-28'), (7, '2016-03-17'), (8, '2021-01-27');
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO public.editora(nome, endereco_id, contato_id)
+	VALUES ('dfsgdsfgsdfg', 2, 3), ('asdfsadff', 3, 7), ('asdfgf', 4, 9), 
+	('fghfghfgdh', 5, 5), ('werwe', 6, 22), ('fhgjhgjgh', 7, 23), ('dfgdfg', 8, 9), ('ffffff', 9, 12);
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO public.pessoa(
+	nome, contato_id, endereco_id, rg, cpf, faculdade_id, genero)
+	VALUES ('gsdfg', 10, 23, 'sdfgdfsg', 'sdfgdsfg', 1, 'sdfgds'),
+	('qeqwewqe', 11, 2, '23432', '234', 1, 'dffd'),
+	('dfsg', 12, 3, '3244', '444', 1, 'sdf'),
+	('bnmnbm', 13, 4, '123213', '324', 1, 'sdff'),
+	('fdgh', 14, 5, '787', '999', 1, 'sdfsdf'), 
+	('bnmb', 15, 6, '212', '1213', 1, 'sdf'),
+	('hjghf', 16, 20, '678', '009', 1, 'fdgfdg'), 
+	('asdf', 17, 21, '331', '323231', 1, 'gfdg'),
+	('hjk', 18, 22, '6766', '678678', 1, 'fghfgh'),
+	('ffff', 19, 16, '3213213', '1232', 1, 'cvb'),
+	('llll', 20, 18, '6554', '56656', 1, 'gddfg'), 
+	('ggggg', 21, 17, '66777', '343555', 1, 'cvbc'),
+	('iouiu', 25, 18, '6443', '6444', 1, 'dfgfdg'), 
+	('hhhh', 30, 30, '656567', '78766', 1, 'sdfg'),
+	('kjl,', 19, 19, '3532', '222', 1, 'adasd'), 
+	('jjjj', 26, 20, '44333', '6565965', 1, 'wer'),
+	('cvbcvb', 27, 27, '2423', '244', 1, 'cxvcxv'), 
+	('kkkk', 28, 28, '3311', '321157', 1, 'sfd'),
+	('mbnm', 29, 29, '3333', '43', 1, 'cvbcvb'), 
+	('llll', 22, 14, '54699810', '990865', 1, 'sdf');
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO public.evento(
+	pessoa_id, nome, tipo, data)
+	VALUES (1, 'Como fazer TCC', 'TechDay', '2021-09-17'), 
+	(4, 'Comunicação no ambiente de trabalho', 'Soft skills', '2021-09-18'),
+	(7, 'Cidades inteligentes', 'Palestra', '2021-09-29'),
+	(18, 'Python para iniciantes', 'TechDay', '2021-10-02');
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO public.mensalidade(	
+	pessoa_id, data, valor)
+	VALUES (1, '2021-09-17', 502.39), (2, '2021-09-19', 771.45),
+	(8, '2021-09-17', 433.98), (5, '2021-09-21', 502.39),
+	(11, '2021-09-18', 448.04), (9, '2021-09-27', 448.04),
+	(1, '2021-10-17', 502.39), (2, '2021-10-19', 771.45),
+	(11, '2021-10-18', 448.04), (12, '2021-09-15', 359);
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO public.bolsa(
+	pessoa_id, tipo, porcentagem, inicio, fim)
+	VALUES (2, 'funcionario', 30, '2019-06-15', '2020-12-21'),
+	(7, 'FIES', 50, '2020-01-01', '2021-06-02'),
+	(17, 'Prouni', 100, '2015-04-18', '2018-10-19'),
+	(13, 'Prouni', 100, '2018-05-25', '2020-09-27'),
+	(20, 'FIES', 75, '2019-04-04', '2021-02-26');
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO public.funcionario(
+	cargo, salario_id, pessoa_id)
+	VALUES ('professor', 4, 7), ('coordenador', 6, 3), ('zelador', 2, 10), 
+	('recepcionista', 2, 15), ('professor', 5, 13), ('coordenador', 7, 4),
+	('professor', 4, 18);
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO public.coordenador(
+	funcionario_id)
+	VALUES (2), (6);
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO public.biblioteca(faculdade_id, funcionario_id)
+	VALUES (1, 4);
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO public.curso(nome, coordenador_id, carga_horaria, semestres, faculdade_id)
+	VALUES ('Jornalismo', 1, 1200, 6, 1),
+		   ('Engenharia da Computacao', 2, 1500, 8, 1),
+		   ('Historia', 1, 1200, 6, 1);
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO public.materia(
+	nome, carga_horaria, curso_id)
+	VALUES ('matematica discreta', 80, 2), ('programação 1', 80, 2), ('banco de dados', 60, 2), ('tecnologias movéis', 60, 2),
+	('primeira guerra', 60, 3), ('invasão mongol no japão', 80, 3), ('feudalismo', 80, 3), ('guerra fria', 70, 3);
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO public.professor(
+	funcionario_id, materia_id, orientador)
+	VALUES (1, 1, 'true'), (1, 4, 'false'),
+	(7, 2, 'true'), (5, 8, 'false'),
+	(5, 5, 'false'), (7, 3, 'true');
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO public.livro(titulo, autor_id, editora_id, biblioteca_id)
+	VALUES ('Sonhos de uma noite de verao', 1, 1, 1),
+	       ('O Principe', 2, 1, 1),
+		   ('Odisseia', 3, 2, 1),
+		   ('Calculo', 4, 3, 1),
+		   ('Sobre jornais', 5, 4, 1),
+		   ('Sistemas', 6, 3, 1),
+		   ('Intrevistas', 7, 5, 1),
+		   ('Circuitos', 8, 6, 1),
+		   ('Mitologia Nordica', 9, 7, 1),
+		   ('Redacao', 4, 7, 1);
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO public.inscricao_vestibular(pessoa_id, curso_id, ano, situacao_id)
+	VALUES (3, 1, '2020-01-01', 1),
+		   (4, 2, '2021-01-01', 1),
+		   (5, 3, '2021-01-01', 2),
+		   (7, 2, '2020-01-01', 1),
+		   (15, 1, '2019-01-01', 2);
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO public.turma(professor_id, curso_id, turno_id, dia_semana)
+	VALUES (1, 1, 1, 'Segunda-feira'),
+		   (5, 3, 1, 'Terca-feira'),
+		   (3, 2, 2, 'Quarta-feira'),
+		   (4, 3, 2, 'Quinta-feira'),
+		   (6, 2, 3, 'Sexta-feira');
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO public.locacao(pessoa_id, livro_id, data_locacao, data_devolucao)
+	VALUES (2, 1, '2021-04-18', '2021-04-25'),
+		   (11, 2, '2021-03-05', '2021-03-12'),
+		   (12, 3, '2020-09-09', '2021-09-16'),
+		   (13, 2, '2021-06-28', '2021-07-05'),
+		   (14, 4, '2021-01-01', '2021-01-08'),
+		   (20, 8, '2021-02-21', '2021-02-28'),
+		   (17, 5, '2021-04-26', '2021-05-03'),
+		   (18, 9, '2021-07-01', '2021-07-08');
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+insert into aluno(status, pessoa_id, curso_id, maioridade, necessidade_especial, semestre, turma_id) values('Ativo',1,1,'sim','Não',7,4);
+insert into aluno(status, pessoa_id, curso_id, maioridade, necessidade_especial, semestre, turma_id) values('Ativo',2,1,'sim','Não',8,1);
+insert into aluno(status, pessoa_id, curso_id, maioridade, necessidade_especial, semestre, turma_id) values('Ativo',3,1,'sim','Não',8,3);
+insert into aluno(status, pessoa_id, curso_id, maioridade, necessidade_especial, semestre, turma_id) values('Ativo',4,1,'sim','Não',2,5);
+insert into aluno(status, pessoa_id, curso_id, maioridade, necessidade_especial, semestre, turma_id) values('Ativo',5,2,'sim','Não',1,3);
+insert into aluno(status, pessoa_id, curso_id, maioridade, necessidade_especial, semestre, turma_id) values('Ativo',6,2,'sim','cadeirante',2,1);
+insert into aluno(status, pessoa_id, curso_id, maioridade, necessidade_especial, semestre, turma_id) values('Ativo',7,2,'sim','Não',1,1);
+insert into aluno(status, pessoa_id, curso_id, maioridade, necessidade_especial, semestre, turma_id) values('Ativo',8,1,'sim','Não',6,3);
+insert into aluno(status, pessoa_id, curso_id, maioridade, necessidade_especial, semestre, turma_id) values('Ativo',9,1,'sim','Não',7,1);
+insert into aluno(status, pessoa_id, curso_id, maioridade, necessidade_especial, semestre, turma_id) values('Ativo',10,1,'sim','Não',1,5);
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+insert into horario(hora_inicio,hora_fim,sala_id,turma_id) values ('7h00','8h40',1,2),('8h40','10h20',1,2),('11h00','12h40',2,1),('7h00','8h40',2,1);
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+insert into tcc(aluno_id,coordenador_id,titulo_tcc,data_criacao,situacao_id) values (2,1,'TI na vida pessoal','2021-04-03',1);
+insert into tcc(aluno_id,coordenador_id,titulo_tcc,data_criacao,situacao_id) values (3,1,'TI na psicologia','2021-04-03',1);
+insert into tcc(aluno_id,coordenador_id,titulo_tcc,data_criacao,situacao_id) values (4,1,'TI no futebol','2021-08-03',1);
+insert into tcc(aluno_id,coordenador_id,titulo_tcc,data_criacao,situacao_id) values (5,1,'TI na natureza','2017-04-12',1);
+insert into tcc(aluno_id,coordenador_id,titulo_tcc,data_criacao,situacao_id) values (6,1,'TI na politica','2018-10-03',1);
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+insert into avaliacao(aluno_id,materia_id) values (3,1),(3,2),(4,1),(4,2),(5,1),(5,2);
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+insert into resultado(nota,avaliacao_id) values (5,1),(10,2),(1,3),(7,4),(8,5);
